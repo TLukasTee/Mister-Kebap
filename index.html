@@ -1038,7 +1038,7 @@
     </section>
 
 
- <section id="gallery" class="gallery section-bg">
+ <!-- <section id="gallery" class="gallery section-bg">
   <div class="container" data-aos="fade-up">
 
     <div class="section-header">
@@ -1056,7 +1056,7 @@
     </div>
 
   </div>
-</section>
+</section> -->
 
 <section id="contact" class="contact">
   <div class="container" data-aos="fade-up">
@@ -1127,7 +1127,7 @@
           <i class="icon bi bi-envelope flex-shrink-0"></i>
           <div>
             <h3> Email </h3>
-            <p>MisterKebap@info.com</p>
+            <p>info@misterkebap.at</p>
           </div>
         </div>
       </div><!-- End Info Item -->
@@ -1240,5 +1240,210 @@
 </div>
 </div>
 </body>
+<!-- Add this right before the closing </body> tag -->
+<div id="cookie-banner" class="cookie-banner" style="display: none;">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <h3>Cookie-Einstellungen</h3>
+      <p>
+        Wir nutzen Cookies auf unserer Website. Einige von ihnen sind technisch notwendig, 
+        während andere uns helfen, diese Website und Ihre Erfahrung zu verbessern. 
+        Weitere Informationen finden Sie in unserer 
+        <a href="/datenschutz" class="cookie-link">Datenschutzerklärung</a>.
+      </p>
+      
+      <button onclick="toggleDetails()" id="details-toggle" class="cookie-link-button">
+        Details anzeigen
+      </button>
 
+      <div id="cookie-details" style="display: none;">
+        <div class="cookie-details-section">
+          <h4>Notwendige Cookies</h4>
+          <p>
+            Diese Cookies sind für die Grundfunktionen der Website erforderlich. 
+            Sie ermöglichen grundlegende Funktionen wie die Seitennavigation und 
+            den Zugriff auf sichere Bereiche der Website. Die Website kann ohne 
+            diese Cookies nicht richtig funktionieren.
+          </p>
+        </div>
+        
+        <div class="cookie-details-section">
+          <h4>Analyse & Marketing Cookies</h4>
+          <p>
+            Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website 
+            interagieren. Sie helfen uns, die Leistung und Nutzererfahrung kontinuierlich 
+            zu verbessern. Außerdem ermöglichen sie uns, Ihnen personalisierte 
+            Werbung auf Basis Ihrer Interessen anzuzeigen.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cookie-buttons">
+      <button onclick="acceptNecessary()" class="cookie-button secondary">
+        Nur Notwendige Cookies
+      </button>
+      <button onclick="acceptAll()" class="cookie-button primary">
+        Alle Cookies Akzeptieren
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Add this to your existing CSS file or in a <style> tag in the head -->
+<style>
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.3s ease-out;
+}
+
+.cookie-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.cookie-text h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cookie-text p {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.cookie-link {
+  color: #BF953F;
+  text-decoration: none;
+}
+
+.cookie-link:hover {
+  text-decoration: underline;
+}
+
+.cookie-link-button {
+  background: none;
+  border: none;
+  color: #BF953F;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.cookie-link-button:hover {
+  text-decoration: underline;
+}
+
+.cookie-details-section {
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.cookie-details-section h4 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cookie-button {
+  padding: 0.625rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: none;
+}
+
+.cookie-button.primary {
+  background: #BF953F;
+  color: white;
+}
+
+.cookie-button.primary:hover {
+  background: #c29335;
+}
+
+.cookie-button.secondary {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.cookie-button.secondary:hover {
+  background: #e5e7eb;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .cookie-buttons {
+    flex-direction: column;
+  }
+  
+  .cookie-button {
+    width: 100%;
+  }
+}
+</style>
+
+<!-- Add this to your existing JavaScript file or in a <script> tag before </body> -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const hasAcceptedCookies = localStorage.getItem('cookieConsent');
+  if (!hasAcceptedCookies) {
+    document.getElementById('cookie-banner').style.display = 'block';
+  }
+});
+
+function toggleDetails() {
+  const details = document.getElementById('cookie-details');
+  const toggle = document.getElementById('details-toggle');
+  if (details.style.display === 'none') {
+    details.style.display = 'block';
+    toggle.textContent = 'Details ausblenden';
+  } else {
+    details.style.display = 'none';
+    toggle.textContent = 'Details anzeigen';
+  }
+}
+
+function acceptAll() {
+  localStorage.setItem('cookieConsent', 'all');
+  document.getElementById('cookie-banner').style.display = 'none';
+  // Here you would enable all your cookies/tracking
+}
+
+function acceptNecessary() {
+  localStorage.setItem('cookieConsent', 'necessary');
+  document.getElementById('cookie-banner').style.display = 'none';
+  // Here you would only enable essential cookies
+}
+</script>
 </html>
